@@ -1,6 +1,10 @@
+require('dotenv').config();
 const express = require("express");
 const Pool = require('pg').Pool;
 const bodyParser = require("body-parser");
+const { OpenAI } = require("openai");
+const openai = new OpenAI({ apiKey: process.env.OPEN_API_KEY });  // use key stored in .env file
+
 const app = express();
 
 app.use(express.static('public'));
@@ -76,4 +80,55 @@ app.delete("/api/viewGoals/delete/:id", (req, res) => {
 
 app.listen(80, () => {
     console.log("Listening on port 80");
+});
+
+//Post for habits data
+
+app.post("/api/habits", async (req, res) => {
+    try {
+        const {
+            user_name,
+            sleep_hours,
+            credit_hours,
+            study_hours,
+            exercise_hours,
+            screen_time,
+            habit_ranking 
+        } = req.body;
+
+        // Insert!
+        const result = await pool.query(
+            `INSERT INTO habits
+            (user_name, sleep_hours, credit_hours, study_hours, exercise_hours,
+             screen_time, habit_ranking)
+             VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+            [
+                user_name,
+                parseInt(sleep_hours, 10),
+                parseInt(credit_hours, 10),
+                parseInt(study_hours, 10),
+                parseInt(exercise_hours, 10),
+                parseInt(screen_time, 10),
+                JSON.stringify(habit_ranking)
+            ]
+        );
+
+        return res.json({ status: "success", id: result.rows[0].id });
+    } catch (error) {
+        console.error("Error saving data to habits:", error);
+        res.status(500).json({ error: "Server Error" });
+    }
+});
+
+// Import and await reponse from OpenAI
+app.post("/api/habits/response", async (req, res) => {
+    try {
+        // bring in response from openai.mjs
+        const { generateResponse } =  await import('./openai.mjs');
+        const tips = await generateResponse(req.body);
+        res.json({ tips });
+    } catch (error) {
+        console.error("Error generating response from OpenAI:", error);
+        res.status(500).json({ error: "Server Error" });
+    }
 });

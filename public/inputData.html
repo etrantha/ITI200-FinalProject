@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Habits Tracker</title>
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <!-- Bootstrap Icons -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="CSS/styles.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <title>Habits Tracker</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Habits Tracker</a>
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
@@ -43,55 +46,72 @@
             </div>
         </nav>
         <!-- Main section-Form -->
-         <div class="row">
-            <div class="col-3"></div>
-            <div class="form-container col-6">
-                <form id="habitsForm">
-                    <h2 class="mb-4">Help us understand you current habits</h2>
-                    <div class="mb-3">
-                        <label for="sleepHours" class="form-label">Avaerge hours of sleep per night<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="sleepHours" required placeholder="7">
-                    </div>
-                    <div class="mb-3">
-                        <label for="sleepGoal" class="form-label">How many hours of sleep do you think you should be getting:<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="sleepGoal" required placeholder="8 or more">
-                    </div>
-                    <div class="mb-3">
-                        <label for="creditHours" class="form-label">How many credit hours are you enrolled in right now<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="creditHours" required placeholder="12">
-                        </div>
-                    <div class="mb-3">
-                        <label for="studyHours" class="form-label">How many hours do you study per week<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="studyHours" required placeholder="10">
-                    </div>
-                    <div class="mb-3">
-                        <label for="excerciseHours" class="form-label">How many hours do you exercise per week<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="excerciseHours" required placeholder="3">
-                    </div>
-                    <div class="mb-3">
-                        <label for="screenTime" class="form-label">If you checked you phones screen time(Andriod and Apple will tell you)what if you average screen time per day<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="screenTime" required placeholder="2">
-                    </div>
-                    <div class="mb-3">
-                        <label for="screenGoal" class="form-label">How many hours of screen time do you think you should be getting<span class="text-danger">*</span></label>
-                        <input type="number" class="form-control" id="screenGoal" required placeholder="1 or less">
-                    </div>
-                    <div class="mb-3">
-                        <label for="studyGroupInterest" class="form-label">Would you be interested in joining a study group<span class="text-danger">*</span></label>
-                        <select class="form-select" id="studyGroupInterest">
-                            <option value="" disabled selected>Select an option</option>
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary" id="inputSubmitBTN">Submit</button>
-                </form>
-            </div>
-            <div class="col-3"></div>
-         </div>
-        <!-- Bootstrap JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <!-- Custom JS -->
-        <script src="Javascrip/main.js"></script>
-    </body>
+</nav>
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-sm-12">
+            <form id="habitsForm" novalidate>
+                <h2 class="mb-4">Tell Us About Your Habits</h2>
+              <!--UserName-->
+                <div class="mb-3">
+                    <label for="userName" class="form-label">What is your name?<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="userName" name="userName" required>
+                </div>
+                <!-- Sleep Hours (label changed) -->
+                <div class="mb-3">
+                    <label for="sleepHours" class="form-label">How much sleep do you get each night?<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="sleepHours" name="sleepHours" required placeholder="e.g., 7">
+                </div>
+                <!-- Credit Hours -->
+                <div class="mb-3">
+                    <label for="creditHours" class="form-label">How many credit hours are you enrolled in right now<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="creditHours" name="creditHours" required placeholder="12">
+                </div>
+                <!-- Study Hours -->
+                <div class="mb-3">
+                    <label for="studyHours" class="form-label">How many hours do you study per week<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="studyHours" name="studyHours" required placeholder="10">
+                </div>
+                <!-- Exercise Hours -->
+                <div class="mb-3">
+                    <label for="exerciseHours" class="form-label">How many hours do you exercise per week<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="exerciseHours" name="exerciseHours" required placeholder="3">
+                </div>
+                <!-- Screen Time -->
+                <div class="mb-3">
+                    <label for="screenTime" class="form-label">What is your average screen time per day?<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="screenTime" name="screenTime" required placeholder="e.g., 2">
+                </div>
+                <!-- Ranking Importance of Habits -->
+                <div class="mb-4">
+                    <label class="form-label">Rank the importance of the following habits to you (Drag and Drop to reorder):</label>
+                    <ul id="rankedHabits" class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center" data-habit="sleep">
+                            Sleep <span class="bi bi-arrows-move"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center" data-habit="study">
+                            Studying <span class="bi bi-arrows-move"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center" data-habit="exercise">
+                            Exercise <span class="bi bi-arrows-move"></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center" data-habit="screenTime">
+                            Screen Time <span class="bi bi-arrows-move"></span>
+                        </li>
+                    </ul>
+                    <small class="text-muted">Top of the list matters most</small>
+                </div>
+                <button type="submit" class="btn btn-primary w-100" id="inputSubmitBTN">Submit</button>
+            </form>
+            <div id="formResponse" class="mt-3"></div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- SortableJS -->
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js"></script>
+<!-- Custom JS -->
+<script src="Javascrip/inputData.js"></script>
+</body>
 </html>
