@@ -11,53 +11,50 @@
     <link rel="stylesheet" href="CSS/styles.css">
 </head>
 <body>
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Habits Tracker</a>
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">Habits Tracker</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="inputData.html">Input Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="viewGoals.html">View Goals</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="greatTips.html">Great Tips</a>
+                </li>
+            </ul>
+            <!-- Right-aligned login button with person icon -->
+            <div class="d-flex ms-auto">
+                <button class="btn btn-outline-light">
+                    <a class="nav-link" href="login.html"><i class="bi bi-person-circle"></i> Login</a>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="inputData.html">Input Data</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="viewGoals.html">View Goals</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="greatTips.html">Great Tips</a>
-                        </li>
-                    </ul>
-                    <!-- Right-aligned login button with person icon -->
-                    <div class="d-flex ms-auto">
-                        <button class="btn btn-outline-light">
-                            <a class="nav-link" href="login.html"><i class="bi bi-person-circle"></i> Login</a>
-                        </button>
-                    </div>
-                </div>
             </div>
-        </nav>
-        <!-- Main section-Form -->
+        </div>
+    </div>
 </nav>
+
+<!-- Main section-Form -->
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8 col-sm-12">
             <form id="habitsForm" novalidate>
                 <h2 class="mb-4">Tell Us About Your Habits</h2>
-              <!--UserName-->
+                <!--UserName-->
                 <div class="mb-3">
                     <label for="userName" class="form-label">What is your name?<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="userName" name="userName" required>
                 </div>
-                <!-- Sleep Hours (label changed) -->
+                <!-- Sleep Hours -->
                 <div class="mb-3">
                     <label for="sleepHours" class="form-label">How much sleep do you get each night?<span class="text-danger">*</span></label>
                     <input type="number" class="form-control" id="sleepHours" name="sleepHours" required placeholder="e.g., 7">
@@ -101,8 +98,9 @@
                     </ul>
                     <small class="text-muted">Top of the list matters most</small>
                 </div>
-                <button type="submit" class="btn btn-primary w-100" id="inputSubmitBTN">Submit</button>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
             </form>
+            <!-- this is where we'll show the results after submitting -->
             <div id="formResponse" class="mt-3"></div>
         </div>
     </div>
